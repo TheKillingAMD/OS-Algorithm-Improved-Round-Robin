@@ -1,0 +1,21 @@
+Method,N_Processes,Avg Response Time,Avg Waiting Time,Avg Turn-Around Time,Context Switches
+Round Robin,50,94.66864,176.18346,182.24346,82
+Improved Round Robin,50,92.37462,93.81462,99.87462,53
+Improved Round Robin Dual (2) Processor,50,43.24,43.24,49.3,48
+Improved Round Robin Quad (4) Processor,50,21.2,21.14797,27.20797,49
+Round Robin,70,117.5181714,230.4090286,235.8518857,120
+Improved Round Robin,70,121.2,121.2,126.6428571,69
+Improved Round Robin Dual (2) Processor,70,56.01428571,56.01428571,61.45714286,68
+Improved Round Robin Quad (4) Processor,70,24.08571429,24.08571429,29.52857143,66
+Round Robin,100,218.596035,424.161765,431.051765,173
+Improved Round Robin,100,219.36,219.36,226.25,99
+Improved Round Robin Dual (2) Processor,100,100.69,100.69,107.58,98
+Improved Round Robin Quad (4) Processor,100,42.721415,42.66761,49.55761,97
+Round Robin,150,235.0491067,470.3493067,475.4759733,255
+Improved Round Robin,150,239.78,239.78,244.9066667,149
+Improved Round Robin Dual (2) Processor,150,106.0133333,106.0133333,111.14,148
+Improved Round Robin Quad (4) Processor,150,40.78876333,40.76796667,45.89463333,147
+Round Robin,200,328.83582,639.1362,644.4512,332
+Improved Round Robin,200,329.36,329.36,334.675,199
+Improved Round Robin Dual (2) Processor,200,147.21,147.21,152.525,198
+Improved Round Robin Quad (4) Processor,200,58.005,58.005,63.32,196

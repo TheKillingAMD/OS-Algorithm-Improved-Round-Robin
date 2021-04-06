@@ -1,8 +1,4 @@
 import pandas as pd
-import csv
-import numpy
-import pytz
-import dateutil
 
 def calc_quantum(ready_queue, burst_time, c, p):
 
@@ -43,26 +39,22 @@ def sort(ready_queue, rem_bt):
         heapify(ready_queue, rem_bt, n, i)
 
     for i in range(n-1, 0, -1):
-        ready_queue[i], ready_queue[0] = ready_queue[0], ready_queue[i]  # swap
+        ready_queue[i], ready_queue[0] = ready_queue[0], ready_queue[i]
         heapify(ready_queue, rem_bt, i, 0)
 
     return ready_queue
     
 
-# if __name__ == "__main__":
-for p in range(1,101):
+if __name__ == "__main__":
 
     data = pd.read_csv('dataset-200.csv')
 
     arrival_time = data['Arrival Time']
     burst_time = data['Burst Time']
 
-    # arrival_time = [0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,7,8,8,8,10,10,10,10,10,10]
-    # burst_time = [3,12,4,9,12,2,2,10,11,5,9,1,1,3,9,8,2,5,8,8,10,4,6,8,1,9,3,8,11,10,12,5,3,3,5,6,2,4,7,9,1,1,3,8,11,8,1,12,6,2]
-
     n = len(arrival_time)
 
-    p = p/100
+    p = 0.85
 
     ready_queue = []
 
@@ -148,11 +140,15 @@ for p in range(1,101):
 
     ncs += 1
 
-    # print()
-    # print("pid | Arrival Time | Burst Time | Response Time | Completion Time | Waiting Time | Turn-Around Time")
-    # print("---------------------------------------------------------------------------------------------------")
+    print()
+    print("pid | Arrival Time | Burst Time | Response Time | Completion Time | Waiting Time | Turn-Around Time")
+    print("---------------------------------------------------------------------------------------------------")
 
-    # for i in range(n):
-    #     print("%3d | %12.2f | %10.2f | %13.2f | %15.2f | %12.2f | %16.2f" % (i+1, arrival_time[i], burst_time[i], rt[i], ct[i], wt[i], tat[i]))
+    for i in range(n):
+        print("%3d | %12.2f | %10.2f | %13.2f | %15.2f | %12.2f | %16.2f" % (i+1, arrival_time[i], burst_time[i], rt[i], ct[i], wt[i], tat[i]))
 
-    print(p*100,"%.3f"%(sum(rt)/n),"%.3f"%(sum(wt)/n),"%.3f"%(sum(tat)/n),ncs)
+    print("\nAverage Response Time: %.3f"%(sum(rt)/n))
+    print("Average Waiting Time: %.3f"%(sum(wt)/n))
+    print("Average Turn-Around Time: %.3f"%(sum(tat)/n))
+    print("Context Switches:", ncs)
+    print()
